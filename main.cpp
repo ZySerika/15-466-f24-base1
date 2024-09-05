@@ -3,6 +3,7 @@
 
 //The 'PlayMode' mode plays the game:
 #include "PlayMode.hpp"
+#include "PacMode.hpp"
 
 //For asset loading:
 #include "Load.hpp"
@@ -63,7 +64,7 @@ int main(int argc, char **argv) {
 
 	//create window:
 	SDL_Window *window = SDL_CreateWindow(
-		"gp23 game1: remember to change your title", //TODO: remember to set a title for your game!
+		"gp23 game1: pac cars", //TODO: remember to set a title for your game!
 		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
 		2*PPU466::ScreenWidth + 8, 2*PPU466::ScreenHeight + 8, //TODO: modify window size if you'd like
 		SDL_WINDOW_OPENGL
@@ -106,7 +107,7 @@ int main(int argc, char **argv) {
 	call_load_functions();
 
 	//------------ create game mode + make current --------------
-	Mode::set_current(std::make_shared< PlayMode >());
+	Mode::set_current(std::make_shared< PacMode >());
 
 	//------------ main loop ------------
 

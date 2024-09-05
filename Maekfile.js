@@ -94,6 +94,7 @@ if (maek.OS === 'windows') {
 //returns objFile: objFileBase + a platform-dependant suffix ('.o' or '.obj')
 const game_objs = [
 	maek.CPP('PlayMode.cpp'),
+	maek.CPP('PacMode.cpp'),
 	maek.CPP('PPU466.cpp'),
 	maek.CPP('main.cpp'),
 	maek.CPP('load_save_png.cpp'),
@@ -101,14 +102,16 @@ const game_objs = [
 	maek.CPP('data_path.cpp'),
 	maek.CPP('Mode.cpp'),
 	maek.CPP('gl_compile_program.cpp'),
-	maek.CPP('GL.cpp')
+	maek.CPP('GL.cpp'),
+	//maek.CPP('assetpipeline.cpp'),
+	//maek.CPP('assetlevelpipeline.cpp'),
 ];
 
 //the '[exeFile =] LINK(objFiles, exeFileBase, [, options])' links an array of objects into an executable:
 // objFiles: array of objects to link
 // exeFileBase: name of executable file to produce
 //returns exeFile: exeFileBase + a platform-dependant suffix (e.g., '.exe' on windows)
-const game_exe = maek.LINK(game_objs, 'dist/game');
+const game_exe = maek.LINK(game_objs, 'dist2/assetpipeline');
 
 //set the default target to the game (and copy the readme files):
 maek.TARGETS = [game_exe, ...copies];
